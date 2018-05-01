@@ -1,0 +1,17 @@
+destinée aux surfaces rectangulaires :
+.. 
+La tondeuse peut être programmée pour parcourir l'intégralité de la surface: 
+
+.. peut elle être programmer sur une partie de la pelouse?
+
+La position de la tondeuse est représentée par une combinaison de coordonnées (x,y) et d'une lettre indiquant l'orientation selon la notation cardinale anglaise (N,E,W,S) =>
+
+.. deux tendeuse peuvent se retrouver sur la même case ?
+.. combien  de tendeuse par pelouse?
+.. pelouse commune a toute les tendeuses?
+.. passer sur une surface deja parcourue ?
+La pelouse est divisée en grille pour simplifier la navigation => 
+
+
+La suite du fichier permet de piloter toutes les tondeuses qui ont été déployées :
+.. notre appli deploie les tendeuses sur la pelouse?
