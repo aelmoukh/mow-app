@@ -2,8 +2,6 @@ package com.mowitmow.model.tendeuse;
 
 import com.mowitmow.model.Coordonnees;
 import com.mowitmow.model.Orientation;
-import com.mowitmow.model.instruction.InstructionDeplacement;
-import com.mowitmow.model.instruction.InstructionRotation;
 
 public class Tendeuse {
     private TendeusePosition position;
@@ -22,6 +20,11 @@ public class Tendeuse {
     public Tendeuse(int positionX, int positionY, Orientation orientation) {
         super();
         this.position = new TendeusePosition(orientation, new Coordonnees(positionX, positionY));
+    }
+
+    public Tendeuse(Coordonnees coordonnees, Orientation orientation) {
+        super();
+        this.position = new TendeusePosition(orientation, coordonnees);
     }
 
     public TendeusePosition getPosition() {
@@ -48,47 +51,22 @@ public class Tendeuse {
         return position.getOrientation();
     }
 
-    public void seDeplacer(InstructionDeplacement instruction) {
-        if (instruction == null) {
-            throw new IllegalArgumentException("instruction de deplacement ne peut pas etre null");
+    public void seDeplacer(Coordonnees coordonnees) {
+        if (this.position == null) {
+            this.position = new TendeusePosition();
         }
-        Orientation orientation = position.getOrientation();
-        Coordonnees coordonnees = position.getCoordonnees();
-        if (InstructionDeplacement.A == instruction) {
-            switch (orientation) {
-            case N:
-                coordonnees.setPositionY(coordonnees.getPositionY() + 1);
-                break;
-            case W:
-                coordonnees.setPositionX(coordonnees.getPositionX() + 1);
-                break;
-            case S:
-                coordonnees.setPositionY(coordonnees.getPositionY() - 1);
-                break;
-            case E:
-                coordonnees.setPositionX(coordonnees.getPositionX() - 1);
-                break;
-            default:
-                break;
-            }
-        }
+        this.position.setCoordonnees(coordonnees);
     }
 
-    public void tourner(InstructionRotation instruction) {
-        if (instruction == null) {
-            throw new IllegalArgumentException("instruction de rotation ne peut pas etre null");
-        }
-        Orientation orientation = position.getOrientation();
-        switch (instruction) {
-        case D:
-            orientation = orientation.getNext();
-            break;
-        case G:
-            orientation = orientation.getPrevious();
-            break;
-        default:
-            break;
+    public void tourner(Orientation orientation) {
+        if (this.position == null) {
+            this.position = new TendeusePosition();
         }
         position.setOrientation(orientation);
+    }
+
+    @Override
+    public String toString() {
+        return "Tendeuse [position=" + position + ", status=" + status + "]";
     }
 }

@@ -1,37 +1,47 @@
 package com.mowitmow.model;
 
 public class Coordonnees {
-    private int positionX;
-    private int positionY;
+    private int x;
+    private int y;
+
+    public Coordonnees() {
+        super();
+    }
 
     public Coordonnees(int positionX, int positionY) {
         super();
-        this.positionX = positionX;
-        this.positionY = positionY;
+        this.x = positionX;
+        this.y = positionY;
     }
 
-    public int getPositionX() {
-        return positionX;
+    public Coordonnees(Coordonnees coordonnees) {
+        super();
+        this.x = coordonnees.x;
+        this.y = coordonnees.y;
     }
 
-    public void setPositionX(int positionX) {
-        this.positionX = positionX;
+    public int getX() {
+        return x;
     }
 
-    public int getPositionY() {
-        return positionY;
+    public void setX(int positionX) {
+        this.x = positionX;
     }
 
-    public void setPositionY(int positionY) {
-        this.positionY = positionY;
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int positionY) {
+        this.y = positionY;
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + positionX;
-        result = prime * result + positionY;
+        result = prime * result + x;
+        result = prime * result + y;
         return result;
     }
 
@@ -44,13 +54,13 @@ public class Coordonnees {
         if (getClass() != obj.getClass())
             return false;
         Coordonnees other = (Coordonnees) obj;
-        if (positionX != other.positionX)
+        if (x != other.x)
             return false;
-        return (positionY == other.positionY);
+        return (y == other.y);
     }
 
     @Override
     public String toString() {
-        return "X=" + positionX + " Y=" + positionY;
+        return "X=" + x + " Y=" + y;
     }
 }

@@ -13,6 +13,11 @@ public class TendeusePosition {
         this.coordonnees = coordonnees;
     }
 
+    public TendeusePosition(Coordonnees coordonnees) {
+        super();
+        this.coordonnees = coordonnees;
+    }
+
     public TendeusePosition() {
         super();
     }
