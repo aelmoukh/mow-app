@@ -9,35 +9,41 @@
 	<packaging>jar</packaging>
 
 	<name>mow_app</name>
-	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jUniteVersion>4.12</jUniteVersion>
+		<jUnitVersion>4.12</jUnitVersion>
+		<cucumberVersion>1.2.4</cucumberVersion>
+		<apacheCommonsVersion>3.7</apacheCommonsVersion>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.7</version>
+			<version>${apacheCommonsVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.0</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>${jUnitVersion}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>1.2.4</version>
+			<version>${cucumberVersion}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-junit</artifactId>
-			<version>1.2.4</version>
+			<version>${cucumberVersion}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

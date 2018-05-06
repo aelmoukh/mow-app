@@ -3,6 +3,7 @@ package com.mowitmow.service;
 import java.util.Arrays;
 import java.util.Map;
 
+import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import com.mowitmow.model.Coordonnees;
@@ -17,7 +18,11 @@ import com.mowitmow.model.tendeuse.Tendeuse;
 import com.mowitmow.model.tendeuse.TendeusePosition;
 
 public class TendeuseManagerService {
-    public Pelouse lancer(String instructions) throws FunctionnalException {
+    public String lancerInstructionEtAfficher(String instructions) throws FunctionnalException {
+        return construireResultatPourAffichage(executerInstructions(instructions));
+    }
+
+    public Pelouse executerInstructions(String instructions) throws FunctionnalException {
         // validation input
         this.validateInstructions(instructions);
         // extract instructions
@@ -29,6 +34,19 @@ public class TendeuseManagerService {
             this.piloterTendeuse(lines[i], lines[i + 1], pelouse);
         }
         return pelouse;
+    }
+
+    public String construireResultatPourAffichage(Pelouse pelouse) {
+        StringBuilder rendredResult = new StringBuilder();
+        if (pelouse != null && MapUtils.isNotEmpty(pelouse.getTendeusesDeployees())) {
+            pelouse.getTendeusesDeployees().forEach((k, v) -> {
+                TendeusePosition position = v.getPosition();
+                rendredResult.append(position.getCoordonnees().getX()).append(" ")
+                        .append(position.getCoordonnees().getY()).append(" ").append(position.getOrientation())
+                        .append("\n");
+            });
+        }
+        return rendredResult.toString();
     }
 
     private void validateInstructions(String instructions) throws FunctionnalException {

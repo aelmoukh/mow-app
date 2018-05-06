@@ -15,3 +15,5 @@ La pelouse est divisée en grille pour simplifier la navigation =>
 
 La suite du fichier permet de piloter toutes les tondeuses qui ont été déployées :
 .. notre appli deploie les tendeuses sur la pelouse?
+
+.. performences : combien de tendeuses par pelouse
